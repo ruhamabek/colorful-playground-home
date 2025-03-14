@@ -119,7 +119,7 @@ const Dashboard = () => {
       
       {/* Main content */}
       <div className="flex-1 bg-gray-50">
-        <div className="container mx-auto px-4 py-8 md:py-12 md:ml-64">
+        <div className="container mx-auto px-4 py-8 md:py-12 md:pl-8 lg:pl-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
