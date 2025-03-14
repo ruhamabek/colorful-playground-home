@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, LogIn } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +31,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <div className="flex items-center">
                 <div className="relative h-8 w-8 md:h-10 md:w-10">
                   <div className="absolute top-0 left-0 h-full w-full rounded-full bg-kidcare-magenta"></div>
@@ -40,7 +41,7 @@ const Navbar = () => {
                   KidCare
                 </span>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -63,9 +64,13 @@ const Navbar = () => {
               <Phone size={18} className="mr-2" />
               <span className="font-medium">123-456-7890</span>
             </a>
-            <a href="#contact" className="btn-primary">
-              Enroll Now
-            </a>
+            <Link to="/sign-in" className="flex items-center text-gray-600 hover:text-kidcare-magenta transition-colors duration-300 mr-2">
+              <LogIn size={18} className="mr-1" />
+              <span className="font-medium">Sign In</span>
+            </Link>
+            <Link to="/sign-up" className="btn-primary">
+              Sign Up
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -105,9 +110,13 @@ const Navbar = () => {
                 <Phone size={18} className="mr-2" />
                 <span className="font-medium">123-456-7890</span>
               </a>
-              <a href="#contact" className="btn-primary text-center w-full">
-                Enroll Now
-              </a>
+              <Link to="/sign-in" className="flex items-center text-gray-600 py-2">
+                <LogIn size={18} className="mr-2" />
+                <span className="font-medium">Sign In</span>
+              </Link>
+              <Link to="/sign-up" className="btn-primary text-center w-full">
+                Sign Up
+              </Link>
             </div>
           </div>
         </motion.div>
