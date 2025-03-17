@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -16,7 +15,7 @@ import {
   FormLabel, 
   FormMessage 
 } from "@/components/ui/form";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -25,7 +24,6 @@ const formSchema = z.object({
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const { toast } = useToast();
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,9 +38,8 @@ const SignIn = () => {
     console.log(values);
     
     // For demonstration, we'll just show a success toast and redirect
-    toast({
-      title: "Signed in successfully!",
-      description: "Welcome back to KidCare",
+    toast.success("Signed in successfully!", {
+      description: "Welcome back to KidCare"
     });
     
     // Simulate successful login and redirect

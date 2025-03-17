@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -16,7 +15,7 @@ import {
   FormLabel, 
   FormMessage 
 } from "@/components/ui/form";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -30,7 +29,6 @@ const formSchema = z.object({
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { toast } = useToast();
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,9 +45,8 @@ const SignUp = () => {
     console.log(values);
     
     // For demonstration, we'll just show a success toast and redirect
-    toast({
-      title: "Account created successfully!",
-      description: "Welcome to KidCare",
+    toast.success("Account created successfully!", {
+      description: "Welcome to KidCare"
     });
     
     // Simulate successful registration and redirect
