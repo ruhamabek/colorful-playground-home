@@ -1,21 +1,18 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CalendarDays, Clock, MessageSquare, LogOut, User, Settings, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
-import { useToast } from '@/components/ui/use-toast';
+import { toast } from "sonner";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { toast } = useToast();
   const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   const handleLogout = () => {
-    toast({
-      title: "Logged out successfully",
-      description: "You have been logged out of your account",
+    toast.success("Logged out successfully", {
+      description: "You have been logged out of your account"
     });
     
     // Redirect to home page after logout
