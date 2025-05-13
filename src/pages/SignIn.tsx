@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
@@ -25,8 +24,6 @@ const formSchema = z.object({
 
 const SignIn = () => {
   const navigate = useNavigate();
-  // In a real app, this would come from your auth service
-  const [userRole, setUserRole] = useState<string | null>(null);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,30 +37,14 @@ const SignIn = () => {
     // This is where you would normally connect to an auth service
     console.log(values);
     
-    // Simulate checking credentials and getting user role
-    // In a real app, this would be done by your authentication service
-    const mockEmailRoleMap: Record<string, string> = {
-      "parent@example.com": "parent",
-      "nanny@example.com": "nanny",
-      "tutor@example.com": "tutor",
-      "driver@example.com": "driver"
-    };
-    
-    const role = mockEmailRoleMap[values.email] || "parent";
-    setUserRole(role);
-    
     // For demonstration, we'll just show a success toast and redirect
     toast.success("Signed in successfully!", {
-      description: `Welcome back to KidCare`
+      description: "Welcome back to KidCare"
     });
     
-    // Simulate successful login and redirect based on role
+    // Simulate successful login and redirect
     setTimeout(() => {
-      if (role === "parent") {
-        navigate('/dashboard');
-      } else {
-        navigate('/provider-dashboard');
-      }
+      navigate('/dashboard');
     }, 1500);
   };
 

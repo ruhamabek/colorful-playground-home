@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -17,22 +16,10 @@ import {
   FormMessage 
 } from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
-import { 
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue
-} from "@/components/ui/select";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
-  role: z.enum(["parent", "nanny", "tutor", "driver"], {
-    required_error: "Please select a role",
-  }),
   password: z.string().min(6, { message: "Password must be at least 6 characters" }),
   confirmPassword: z.string()
 }).refine(data => data.password === data.confirmPassword, {
@@ -48,7 +35,6 @@ const SignUp = () => {
     defaultValues: {
       name: "",
       email: "",
-      role: "parent",
       password: "",
       confirmPassword: ""
     },
@@ -60,16 +46,12 @@ const SignUp = () => {
     
     // For demonstration, we'll just show a success toast and redirect
     toast.success("Account created successfully!", {
-      description: `Welcome to KidCare as a ${values.role}`
+      description: "Welcome to KidCare"
     });
     
-    // Simulate successful registration and redirect to the appropriate dashboard
+    // Simulate successful registration and redirect
     setTimeout(() => {
-      if (values.role === "parent") {
-        navigate('/dashboard');
-      } else {
-        navigate('/provider-dashboard');
-      }
+      navigate('/dashboard');
     }, 1500);
   };
 
@@ -95,7 +77,7 @@ const SignUp = () => {
               </div>
             </Link>
             <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Create an Account</h1>
-            <p className="text-gray-600">Join KidCare as a parent or service provider</p>
+            <p className="text-gray-600">Join KidCare and manage your childcare appointments</p>
           </div>
 
           <Form {...form}>
@@ -137,33 +119,6 @@ const SignUp = () => {
                         />
                       </div>
                     </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="role"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>I am a</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select your role" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectGroup>
-                          <SelectLabel>Select your role</SelectLabel>
-                          <SelectItem value="parent">Parent</SelectItem>
-                          <SelectItem value="nanny">Nanny</SelectItem>
-                          <SelectItem value="tutor">Tutor</SelectItem>
-                          <SelectItem value="driver">Driver</SelectItem>
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
