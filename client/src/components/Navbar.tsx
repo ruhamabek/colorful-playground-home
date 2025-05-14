@@ -32,7 +32,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <div className="relative h-8 w-8 md:h-10 md:w-10">
                   <div className="absolute top-0 left-0 h-full w-full rounded-full bg-kidcare-magenta"></div>
                   <div className="absolute bottom-0 left-3 h-5 w-5 md:h-6 md:w-6 rounded-bl-full bg-kidcare-purple"></div>
@@ -40,7 +40,12 @@ const Navbar = () => {
                 <span className="ml-3 text-2xl md:text-3xl font-bold bg-gradient-to-r from-kidcare-magenta to-kidcare-purple bg-clip-text text-transparent">
                   KidCare
                 </span>
-              </div>
+              </div> */}
+              <img
+                src="/lovable-uploads/86ba6735-e1a9-4ab5-af57-4a7bc2a80931.png"
+                alt="KidCare Logo"
+                className='h-10 w-28'
+              /> 
             </Link>
           </div>
 
@@ -60,9 +65,9 @@ const Navbar = () => {
 
           {/* Phone number and CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="tel:+1234567890" className="flex items-center text-gray-600 hover:text-kidcare-magenta transition-colors duration-300">
+            <a href="tel:+251-947-9355" className="flex items-center text-gray-600 hover:text-kidcare-magenta transition-colors duration-300">
               <Phone size={18} className="mr-2" />
-              <span className="font-medium">123-456-7890</span>
+              <span className="font-medium">251-947-9355</span>
             </a>
             <Link to="/sign-in" className="flex items-center text-gray-600 hover:text-kidcare-magenta transition-colors duration-300 mr-2">
               <LogIn size={18} className="mr-1" />
@@ -106,9 +111,9 @@ const Navbar = () => {
               </a>
             ))}
             <div className="py-3 flex flex-col space-y-3">
-              <a href="tel:+1234567890" className="flex items-center text-gray-600 py-2">
+              <a href="tel:+251-947-9355" className="flex items-center text-gray-600 py-2">
                 <Phone size={18} className="mr-2" />
-                <span className="font-medium">123-456-7890</span>
+                <span className="font-medium">251-947-9355</span>
               </a>
               <Link to="/sign-in" className="flex items-center text-gray-600 py-2">
                 <LogIn size={18} className="mr-2" />

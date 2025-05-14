@@ -82,8 +82,7 @@ const About = () => {
             </h2>
             
             <p className="text-gray-600 mb-6">
-              Founded in 2008, KidCare has been a trusted name in childcare for over 15 years. 
-              Our mission is to provide exceptional care and education in a nurturing environment 
+              Founded in 2025, KidCare has a mission is to provide exceptional care and education in a nurturing environment 
               that fosters each child's unique development.
             </p>
             

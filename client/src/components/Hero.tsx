@@ -112,11 +112,11 @@ const Hero = () => {
             <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-purple-200/40 rounded-full filter blur-2xl -z-10"></div>
             
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
-              <img
+              {/* <img
                 src="/lovable-uploads/86ba6735-e1a9-4ab5-af57-4a7bc2a80931.png"
                 alt="KidCare Logo"
                 className="w-48 absolute top-6 right-6 z-20 animate-pulse-soft"
-              />
+              /> */}
               <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-kidcare-pink to-white p-8">
                 <div className="w-full h-full rounded-2xl overflow-hidden">
                   <img

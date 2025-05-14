@@ -7,40 +7,27 @@ import {
   Music, 
   Users, 
   Apple, 
-  Moon
+  Moon,
+  Car,
+  
 } from 'lucide-react';
 
 const servicesData = [
   {
     icon: <BookOpen size={32} className="text-kidcare-magenta" />,
-    title: "Early Education",
-    description: "Age-appropriate curriculum designed to foster cognitive development and prepare children for school."
-  },
-  {
-    icon: <Palette size={32} className="text-kidcare-purple" />,
-    title: "Creative Arts",
-    description: "Engaging activities that inspire imagination and self-expression through art, crafts, and creative play."
-  },
-  {
-    icon: <Music size={32} className="text-kidcare-magenta" />,
-    title: "Music & Movement",
-    description: "Fun, interactive sessions that develop motor skills, rhythm awareness, and musical appreciation."
+    title: "Tutoring Services",
+    description: "Personalized educational support to help children excel in their studies, covering various subjects and learning needs."
   },
   {
     icon: <Users size={32} className="text-kidcare-purple" />,
-    title: "Social Skills",
-    description: "Guided interactions that help children build confidence, communication skills, and emotional intelligence."
+    title: "Nanny Services",
+    description: "Reliable and caring nannies who provide a safe, nurturing environment for children, ensuring their well-being and daily routines are managed smoothly."
   },
   {
-    icon: <Apple size={32} className="text-kidcare-magenta" />,
-    title: "Healthy Meals",
-    description: "Nutritious, balanced meals and snacks prepared daily to support growing bodies and developing minds."
+    icon: < Car size={32} className="text-kidcare-purple" />,
+    title: "Driver Services",
+    description: "Safe and punctual transportation solutions for children, whether it's to school, extracurricular activities, or other appointments."
   },
-  {
-    icon: <Moon size={32} className="text-kidcare-purple" />,
-    title: "Naptime Care",
-    description: "Comfortable, supervised rest periods ensuring children stay refreshed and energized throughout the day."
-  }
 ];
 
 const Services = () => {

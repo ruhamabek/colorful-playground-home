@@ -32,13 +32,11 @@ const Dashboard = () => {
       >
         <div className="p-6">
           <div className="flex items-center">
-            <div className="relative h-8 w-8">
-              <div className="absolute top-0 left-0 h-full w-full rounded-full bg-kidcare-magenta"></div>
-              <div className="absolute bottom-0 left-3 h-5 w-5 rounded-bl-full bg-kidcare-purple"></div>
-            </div>
-            <span className="ml-3 text-xl font-bold bg-gradient-to-r from-kidcare-magenta to-kidcare-purple bg-clip-text text-transparent">
-              KidCare
-            </span>
+            <img
+                src="/lovable-uploads/86ba6735-e1a9-4ab5-af57-4a7bc2a80931.png"
+                alt="KidCare Logo"
+                className='h-10 w-28'
+              /> 
           </div>
         </div>
         

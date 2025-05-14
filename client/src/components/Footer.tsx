@@ -92,8 +92,8 @@ const Footer = () => {
                 <span>Closed</span>
               </li>
               <li className="mt-4 pt-4 border-t border-white/10">
-                <a href="tel:+1234567890" className="text-white hover:text-kidcare-pink transition-colors duration-300 font-medium">
-                  Emergency: (123) 456-7890
+                <a href="tel:+251-94716-9355" className="text-white hover:text-kidcare-pink transition-colors duration-300 font-medium">
+                  Emergency: (251)-94716-9355
                 </a>
               </li>
             </ul>
@@ -124,7 +124,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-white/70">
-          <p>© 2023 KidCare. All rights reserved.</p>
+          <p>© 2025 KidCare. All rights reserved.</p>
           <p className="flex items-center">
             Made with <Heart size={16} className="mx-1 text-kidcare-magenta" /> for families
           </p>

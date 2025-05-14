@@ -83,7 +83,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-lg mb-1">Visit Us</h4>
-                  <p className="text-gray-600">123 Sunshine Avenue, Happytown, CA 91234</p>
+                  <p className="text-gray-600">Dire Dawa, Ethiopia</p>
                 </div>
               </div>
               
@@ -93,7 +93,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-lg mb-1">Call Us</h4>
-                  <p className="text-gray-600">(123) 456-7890</p>
+                  <p className="text-gray-600">(251)-94716-9355</p>
                 </div>
               </div>
               
@@ -103,7 +103,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-lg mb-1">Email Us</h4>
-                  <p className="text-gray-600">hello@kidcare.example.com</p>
+                  <p className="text-gray-600">kidcare28@gmail.com</p>
                 </div>
               </div>
               
@@ -121,7 +121,7 @@ const Contact = () => {
             
             <div className="relative h-60 rounded-xl overflow-hidden shadow-md">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.1332437042367!2d-122.41941548439496!3d37.774929979659345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sGolden%20Gate%20Park!5e0!3m2!1sen!2sus!4v1653493861681!5m2!1sen!2sus" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.407426291233!2d41.85445707492399!3d9.593297791947577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1632f3a527d3a00d%3A0x7d43d2c6c0d4f4d1!2sDire%20Dawa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1681302853684!5m2!1sen!2sus" 
                 style={{ border: 0 }} 
                 allowFullScreen={false} 
                 loading="lazy" 
