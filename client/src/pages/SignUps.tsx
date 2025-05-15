@@ -331,6 +331,16 @@ const SignUp = () => {
                 onClick={() => handleRoleSelect("tutor")}
               />
             </div>
+
+            <div className="text-center text-sm">
+              Already have an account?{" "}
+              <Link
+                to="/sign-in"
+                className="font-medium text-primary hover:underline"
+              >
+                Sign in
+              </Link>
+            </div>
           </div>
         </div>
       </div>
