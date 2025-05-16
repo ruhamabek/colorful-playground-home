@@ -7,6 +7,8 @@ import SignIn from "./pages/Signins";
 import SignUp from "./pages/signUps";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import ProfileSetup from "./pages/ProfileSetup";
+import Profile from "./pages/profile";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/profile-setup" element={<ProfileSetup />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
           {/* Redirect /forgot-password to sign-in for now */}
           <Route path="/forgot-password" element={<Navigate to="/sign-in" />} />
