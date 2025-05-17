@@ -1,8 +1,9 @@
 // src/controllers/userController.ts
 import { Request, Response } from "express";
 import axios, { AxiosResponse } from "axios";
+import ConnectionRequest from "../model/ConnectionRequest";
 const createPayments = async (req: Request, res: Response) => {
-  const { id, amount, email, first_name, last_name } = req.body;
+  const { id, amount, email, first_name, last_name, user } = req.body;
   const CHAPA_URL =
     process.env.CHAPA_URL || "https://api.chapa.co/v1/transaction/initialize";
   const CHAPA_AUTH =
@@ -16,11 +17,11 @@ const createPayments = async (req: Request, res: Response) => {
 
   try {
     // Unique transaction reference
-    const TEXT_REF = "tx-myecommerce12345-" + Date.now();
+    const TEXT_REF = "tx-Servicece12345-" + Date.now();
     const CALLBACK_URL = "http://localhost:5000/api/verify-payment/";
-    const RETURN_URL = `http://localhost:8080/pay/${encodeURIComponent(
-      id
-    )}?tx_ref=${encodeURIComponent(TEXT_REF)}`;
+    const RETURN_URL = `http://localhost:8080/connections/?receiver=${user}&tx_ref=${encodeURIComponent(
+      TEXT_REF
+    )}`;
 
     // Form data
     const data = {
@@ -45,6 +46,11 @@ const createPayments = async (req: Request, res: Response) => {
 
 const verifyPayment = async (req: Request, res: Response) => {
   try {
+    // Get sender and receiver from query parameters instead of body for GET request
+    const { sender, receiver } = req.query;
+    console.log("Sender from node:", sender);
+    console.log("Receiver from node:", receiver);
+
     // Verify transaction with Chapa
     const CHAPA_AUTH =
       process.env.CHAPA_AUTH || "CHASECK_TEST-aDExemKF0gxrojDgFodIXww2a9KEATMh";
@@ -54,6 +60,7 @@ const verifyPayment = async (req: Request, res: Response) => {
         Authorization: `Bearer ${CHAPA_AUTH}`,
       },
     };
+
     // Verify transaction with Chapa
     const response = await axios.get(
       `https://api.chapa.co/v1/transaction/verify/${req.params.id}`,
@@ -61,13 +68,26 @@ const verifyPayment = async (req: Request, res: Response) => {
     );
 
     if (response.data.status === "success") {
-      res.json({ message: "Payment verified successfully" });
+      // Find and update the connection request if it exists
+      await ConnectionRequest.findOneAndUpdate(
+        {
+          sender: sender,
+          receiver: receiver,
+        },
+        { payments: true }
+      );
+      res.json({
+        message: "Payment verified successfully",
+        data: response.data,
+      });
     } else {
-      res.status(400).json({ message: "Payment verification failed" });
+      res
+        .status(400)
+        .json({ message: "Payment verification failed", data: response.data });
     }
   } catch (err) {
     console.log("Payment verification error:", err);
-    res.status(500).json({ message: "Error verifying payment" });
+    res.status(500).json({ message: "Error verifying payment", error: err });
   }
 };
 
