@@ -11,10 +11,16 @@ const getProfile = async (req: Request, res: Response) => {
       return res.status(400).json({ error: "User ID is required" });
     }
 
-    const profiles = await Profile.findOne({ userid: userid });
-    return res.status(200).json(profiles);
+    const profile = await Profile.findOne({ userid: userid });
+
+    if (!profile) {
+      return res.status(404).json({ error: "Profile not found" });
+    }
+
+    return res.status(200).json(profile);
   } catch (err) {
-    return res.status(500).json({ error: "internal server error" });
+    console.error("Error fetching profile:", err);
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 
