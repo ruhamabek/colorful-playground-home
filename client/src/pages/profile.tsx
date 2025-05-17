@@ -28,6 +28,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { authClient } from "@/lib/auth-client";
 import { useNavigate } from "react-router-dom";
 import useProfile from "@/api/ProfileApi";
+import Header from "@/components/Header";
 
 const Profile = () => {
   const { data: session } = authClient.useSession();
@@ -127,6 +128,7 @@ const Profile = () => {
       case "driver":
         return (
           <>
+            <Header />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="flex items-center gap-2">
                 <Car className="h-5 w-5 text-primary" />
@@ -179,6 +181,7 @@ const Profile = () => {
       case "nanny":
         return (
           <>
+            <Header />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="flex items-center gap-2">
                 <Briefcase className="h-5 w-5 text-primary" />

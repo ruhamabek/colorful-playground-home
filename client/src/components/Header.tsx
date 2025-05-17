@@ -104,7 +104,7 @@ const Header = () => {
             <span className="text-white font-bold text-xl">K</span>
           </div>
           <span className="text-xl font-medium tracking-tight hidden sm:inline-block">
-           kidcare
+            kidcare
           </span>
         </Link>
 
@@ -163,7 +163,7 @@ const Header = () => {
                   <Button variant="ghost" size="icon" className="rounded-full">
                     <Avatar className="h-8 w-8">
                       <AvatarImage
-                        src={formData?.image || session.user.image}
+                        src={session.user.image || formData?.image}
                       />
                       <AvatarFallback className="bg-primary/10 text-primary">
                         {formData?.image?.[0] ||
