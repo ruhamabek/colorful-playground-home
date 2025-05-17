@@ -52,7 +52,24 @@ const useProfile = () => {
       });
     },
   });
-
+  const getALLProfileMutation = useMutation({
+    mutationFn: async () => {
+      const response = await axios.get(`${API_BASE_URL}/all/allprofile`, {
+        withCredentials: true,
+      });
+      return response.data;
+    },
+    onSuccess: () => {},
+  });
+  const getsingleProfileMutation = useMutation({
+    mutationFn: async (userid: string) => {
+      const response = await axios.get(`${API_BASE_URL}/${userid}`, {
+        withCredentials: true,
+      });
+      return response.data;
+    },
+    onSuccess: () => {},
+  });
   const {
     data: allProfiles,
     isLoading: isLoadingAllProfiles,
@@ -79,6 +96,8 @@ const useProfile = () => {
     isLoadingAllProfiles,
     isErrorAllProfiles,
     refetchAllProfiles,
+    getALLProfileMutation,
+    getsingleProfileMutation,
   };
 };
 
