@@ -1,4 +1,3 @@
-import { string } from "better-auth/*";
 import mongoose from "mongoose";
 
 const connectionRequestSchema = new mongoose.Schema(
@@ -18,7 +17,10 @@ const connectionRequestSchema = new mongoose.Schema(
     },
     images: {
       type: String,
-      // required: true,
+    },
+    payments: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }
