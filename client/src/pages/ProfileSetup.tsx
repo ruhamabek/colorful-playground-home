@@ -253,7 +253,7 @@ function ProfileSetup() {
             {/* Common fields */}
               <h3 className="font-semibold mb-1">Phone Number</h3>
             <Input
-              label="Phone Number"
+             
               value={formData.phoneNum}
               onChange={(e) =>
                 setFormData({ ...formData, phoneNum: e.target.value })
@@ -262,7 +262,7 @@ function ProfileSetup() {
             />
             <h3 className="font-semibold mb-1">Address</h3>
             <Input
-              label="Address"
+              
               value={formData.address}
               onChange={(e) =>
                 setFormData({ ...formData, address: e.target.value })
@@ -296,7 +296,7 @@ function ProfileSetup() {
               <>
                 <h3 className="font-semibold mb-1">Number of Children</h3>
                 <Input
-                  label="Number of Children"
+                   
                   type="number"
                   value={formData.childrenCount}
                   onChange={(e) =>
@@ -368,7 +368,7 @@ function ProfileSetup() {
                 </div>
                   <h3 className="font-semibold mb-1">Car Type</h3>
                 <Input
-                  label="Car Type"
+                 
                   value={formData.carType}
                   onChange={(e) =>
                     setFormData({ ...formData, carType: e.target.value })
@@ -376,7 +376,7 @@ function ProfileSetup() {
                 />
                 <h3 className="font-semibold mb-1">License Plate Number</h3>
                 <Input
-                  label="License Plate Number"
+                  
                   value={formData.plateNum}
                   onChange={(e) =>
                     setFormData({ ...formData, plateNum: e.target.value })
@@ -384,7 +384,7 @@ function ProfileSetup() {
                 />
                 <h3 className="font-semibold mb-1">Years of Driving Experience</h3>
                 <Input
-                  label="Years of Driving Experience"
+                  
                   type="number"
                   value={formData.drivingExperience}
                   onChange={(e) =>
@@ -450,7 +450,7 @@ function ProfileSetup() {
               <><>
                 <h3 className="font-semibold mb-1">Years of Experience</h3>
                 <Input
-                  label="Years of Experience"
+                  
                   type="number"
                   value={formData.experience}
                   onChange={(e) => setFormData({
@@ -503,7 +503,7 @@ function ProfileSetup() {
               <>
                 <h3 className="font-semibold mb-1">Certifications</h3>
                 <Input
-                  label="School/University"
+                  
                   value={formData.school}
                   onChange={(e) =>
                     setFormData({ ...formData, school: e.target.value })
