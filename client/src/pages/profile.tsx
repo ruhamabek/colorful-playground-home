@@ -15,6 +15,8 @@ import {
   Briefcase,
   Zap,
   ArrowRight,
+  Phone,
+  Clock
 } from "lucide-react";
 import {
   Card,
@@ -311,9 +313,11 @@ const Profile = () => {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
+                   <Phone className="h-5 w-5 text-primary" />
                   <span className="text-lg font-medium">{user.phoneNum}</span>
                 </div>
                 <div className="flex items-center gap-2">
+                  <Clock className="h-5 w-5 text-primary" />
                   <span className="text-lg font-medium capitalize">
                     Status: {user.status}
                   </span>
@@ -322,7 +326,7 @@ const Profile = () => {
 
               {renderRoleSpecificFields()}
 
-              <div className="flex flex-wrap gap-6 mb-6">
+              {/* <div className="flex flex-wrap gap-6 mb-6">
                 <div className="flex items-center gap-2">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
@@ -351,7 +355,7 @@ const Profile = () => {
                     Exchanges
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

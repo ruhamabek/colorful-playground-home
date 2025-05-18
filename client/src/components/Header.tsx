@@ -95,17 +95,12 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo and brand */}
-        <Link
-          to="/"
-          className="flex items-center space-x-2"
-          aria-label="Go to homepage"
-        >
-          <div className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-            <span className="text-white font-bold text-xl">K</span>
-          </div>
-          <span className="text-xl font-medium tracking-tight hidden sm:inline-block">
-            kidcare
-          </span>
+          <Link to="/" className="flex items-center">
+              <img
+                src="/lovable-uploads/86ba6735-e1a9-4ab5-af57-4a7bc2a80931.png"
+                alt="KidCare Logo"
+                className="h-10 w-28"
+              />
         </Link>
 
         {/* Desktop Navigation */}

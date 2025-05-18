@@ -239,7 +239,7 @@ function ProfileSetup() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Profile Image */}
             <div>
-              <h3 className="font-semibold mb-2">Profile Image</h3>
+              <h3 className="font-semibold mb-1">Profile Image</h3>
               <FilePreview
                 file={files.profileImage}
                 url={formData.profileUrl}
@@ -254,6 +254,7 @@ function ProfileSetup() {
             </div>
 
             {/* Common fields */}
+              <h3 className="font-semibold mb-1">Phone Number</h3>
             <Input
               label="Phone Number"
               value={formData.phoneNum}
@@ -262,7 +263,7 @@ function ProfileSetup() {
               }
               required
             />
-
+            <h3 className="font-semibold mb-1">Address</h3>
             <Input
               label="Address"
               value={formData.address}
@@ -275,6 +276,7 @@ function ProfileSetup() {
             {/* Role-specific fields */}
             {userRole === "parent" && (
               <>
+                <h3 className="font-semibold mb-1">Number of Children</h3>
                 <Input
                   label="Number of Children"
                   type="number"
@@ -288,7 +290,7 @@ function ProfileSetup() {
                 />
 
                 <div>
-                  <h3 className="font-semibold mb-2">Children's Ages</h3>
+                  <h3 className="font-semibold mb-1">Children's Ages</h3>
                   <div className="flex gap-2">
                     <Input
                       value={ageInput}
@@ -320,7 +322,7 @@ function ProfileSetup() {
             {userRole === "driver" && (
               <>
                 <div>
-                  <h3 className="font-semibold mb-2">Driver License</h3>
+                  <h3 className="font-semibold mb-1">Driver License</h3>
                   <FilePreview
                     file={files.licenseFile}
                     url={formData.licenseUrl}
@@ -333,7 +335,7 @@ function ProfileSetup() {
                     className="w-full p-2 border rounded-md"
                   />
                 </div>
-
+                  <h3 className="font-semibold mb-1">Car Type</h3>
                 <Input
                   label="Car Type"
                   value={formData.carType}
@@ -341,7 +343,7 @@ function ProfileSetup() {
                     setFormData({ ...formData, carType: e.target.value })
                   }
                 />
-
+                <h3 className="font-semibold mb-1">License Plate Number</h3>
                 <Input
                   label="License Plate Number"
                   value={formData.plateNum}
@@ -349,7 +351,7 @@ function ProfileSetup() {
                     setFormData({ ...formData, plateNum: e.target.value })
                   }
                 />
-
+                <h3 className="font-semibold mb-1">Years of Driving Experience</h3>
                 <Input
                   label="Years of Driving Experience"
                   type="number"
@@ -363,7 +365,7 @@ function ProfileSetup() {
                 />
 
                 <div>
-                  <h3 className="font-semibold mb-2">Insurance Document</h3>
+                  <h3 className="font-semibold mb-1">Insurance Document</h3>
                   <FilePreview
                     file={files.insuranceFile}
                     url={formData.insuranceUrl}
@@ -380,6 +382,8 @@ function ProfileSetup() {
             )}
 
             {(userRole === "nanny" || userRole === "tutor") && (
+              <>
+              <h3 className="font-semibold mb-1">Years of Experience</h3>
               <Input
                 label="Years of Experience"
                 type="number"
@@ -391,11 +395,13 @@ function ProfileSetup() {
                   })
                 }
               />
+              </>
+              
             )}
 
             {userRole === "nanny" && (
               <div>
-                <h3 className="font-semibold mb-2">Certifications</h3>
+                <h3 className="font-semibold mb-1">Certifications</h3>
                 <div className="flex gap-2">
                   <Input
                     value={certification}
@@ -425,6 +431,7 @@ function ProfileSetup() {
 
             {userRole === "tutor" && (
               <>
+                <h3 className="font-semibold mb-1">Certifications</h3>
                 <Input
                   label="School/University"
                   value={formData.school}
@@ -434,7 +441,7 @@ function ProfileSetup() {
                 />
 
                 <div>
-                  <h3 className="font-semibold mb-2">Education Certificate</h3>
+                  <h3 className="font-semibold mb-1">Education Certificate</h3>
                   <FilePreview
                     file={files.educationFile}
                     url={formData.educationUrl}
@@ -447,7 +454,7 @@ function ProfileSetup() {
                     className="w-full p-2 border rounded-md"
                   />
                 </div>
-
+            
                 <div className="space-y-2">
                   <label className="block font-medium">Education Level</label>
                   <select
