@@ -103,8 +103,8 @@ const BrowseProfiles = () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      {/* Responsive Navigation Bar */}
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
+      {/* Logo Navigation Bar */}
+      <div className="flex items-center justify-between mb-8">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img
@@ -114,8 +114,8 @@ const BrowseProfiles = () => {
           />
         </Link>
 
-        {/* Filter Buttons (Responsive) */}
-        <div className="grid grid-cols-2 md:flex gap-2 md:gap-4">
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap gap-4">
           <Button
             variant={filter === "all" ? "default" : "outline"}
             onClick={() => setFilter("all")}

@@ -104,10 +104,10 @@ const Navbar = () => {
                     <DropdownMenuSeparator />
                     {session.user.role === "parent" && (
                       <>
-                     <DropdownMenuItem onClick={() => navigate("/dashboard")}>
+                     {/* <DropdownMenuItem onClick={() => navigate("/dashboard")}>
                         <Bell className="mr-2 h-4 w-4" />
                         <span>Dashboard</span>
-                      </DropdownMenuItem>
+                      </DropdownMenuItem> */}
                       <DropdownMenuSeparator />
                       <DropdownMenuItem onClick={() => navigate("/browse")}>
                         <Search className="mr-2 h-4 w-4" />
@@ -181,13 +181,13 @@ const Navbar = () => {
               <div className="py-3 flex flex-col space-y-3">
                 {session.user.role === "parent" && (
                   <>
-                   <Link
+                   {/* <Link
                     to="/dashboard"
                     className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Dashboard
-                  </Link>
+                  </Link> */}
                        <Link
                     to="/browse"
                     className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
