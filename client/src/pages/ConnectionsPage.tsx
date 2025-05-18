@@ -36,10 +36,10 @@ export default function ConnectionsPage() {
 
   // Check for payment verification on initial load
   useEffect(() => {
-    const tx_ref = searchParams.get("tx_ref");
+    const tx_ref = searchParams.get("amp;tx_ref");
     const receiver = searchParams.get("receiver");
 
-    console.log("tx_ref:", tx_ref);
+    console.log("amp;tx_ref:", tx_ref);
     console.log("receiver:", receiver);
     const verifyPaymentFromUrl = async () => {
       console.log("Verifying payment from URL");
