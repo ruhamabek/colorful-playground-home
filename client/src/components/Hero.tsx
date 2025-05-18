@@ -70,7 +70,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-gray-600 mb-8 max-w-lg"
             >
-              At KidCare, we provide a safe, nurturing environment where children can learn, play, and grow. Our professional staff ensures your child receives the attention they deserve.
+              At KidCare, we connect parents with trusted, professional childcare providers in their community. Find the right match for your family's needs and give your child the best opportunities to learn, play, and grow.
             </motion.p>
             
             <motion.div
