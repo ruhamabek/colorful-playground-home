@@ -91,10 +91,9 @@ const SignIn = () => {
         <div className="absolute inset-0 flex items-center justify-center p-10">
           <div className="max-w-xl space-y-6">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold">Welcome back to SkillSwap</h1>
+              <h1 className="text-3xl font-bold">Welcome back to KidCare</h1>
               <p className="text-muted-foreground">
-                Sign in to continue your learning journey and connect with
-                fellow skill swappers.
+                Sign in to continue your journey with us.
               </p>
             </div>
 
@@ -118,9 +117,9 @@ const SignIn = () => {
                   </svg>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-medium">Connect with peers</h3>
+                  <h3 className="font-medium">Connect with service providers</h3>
                   <p className="text-sm text-muted-foreground">
-                    Message directly with your matches and potential mentors.
+                    Message directly with your chosen service provider.
                   </p>
                 </div>
               </div>
@@ -144,10 +143,9 @@ const SignIn = () => {
                   </svg>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-medium">Track your progress</h3>
+                  <h3 className="font-medium">Track your Bookings</h3>
                   <p className="text-sm text-muted-foreground">
-                    Keep track of skills learned and teaching sessions
-                    completed.
+                    Keep track of Bookingsyou Made Through Our Platform.
                   </p>
                 </div>
               </div>
@@ -172,8 +170,7 @@ const SignIn = () => {
                 <div className="space-y-1">
                   <h3 className="font-medium">Find perfect matches</h3>
                   <p className="text-sm text-muted-foreground">
-                    Our algorithm pairs you with students who complement your
-                    skill goals.
+                    Our algorithm pairs you with service providers who complement your goals.
                   </p>
                 </div>
               </div>

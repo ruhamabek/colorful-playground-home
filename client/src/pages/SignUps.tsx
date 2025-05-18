@@ -202,10 +202,9 @@ const SignUp = () => {
             <div className="max-w-xl">
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold">Welcome to SkillSwap</h1>
+                  <h1 className="text-3xl font-bold">Welcome to KidCare.</h1>
                   <p className="text-muted-foreground">
-                    Connect with a community of learners and educators to
-                    exchange skills and knowledge.
+                    Connect with trusted caregivers, tutors, and drivers to support your family's needs with care and reliability
                   </p>
                 </div>
 
@@ -231,10 +230,10 @@ const SignUp = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium">Join a thriving community</h3>
+                      <h3 className="font-medium">Join a trusted network of caregivers and service providers.</h3>
                       <p className="text-sm text-muted-foreground">
-                        Connect with thousands of members looking to exchange
-                        skills.
+                        Connect with families and caregivers committed to quality care and support.
+
                       </p>
                     </div>
                   </div>
@@ -258,9 +257,10 @@ const SignUp = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium">Teach what you know</h3>
+                      <h3 className="font-medium">Empower families and caregivers by sharing your skills and providing trusted support.
+</h3>
                       <p className="text-sm text-muted-foreground">
-                        Share your expertise and grow as an educator.
+                        Share your expertise and grow as a trusted caregiver or service provider
                       </p>
                     </div>
                   </div>
@@ -287,9 +287,9 @@ const SignUp = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium">Learn new skills</h3>
+                      <h3 className="font-medium">Join our trusted community</h3>
                       <p className="text-sm text-muted-foreground">
-                        Acquire valuable knowledge from experienced peers.
+                        Connect with families and caregivers committed to quality care and support.
                       </p>
                     </div>
                   </div>
@@ -303,7 +303,7 @@ const SignUp = () => {
         <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12">
           <div className="w-full max-w-md space-y-8">
             <div className="text-center space-y-2">
-              <h1 className="text-3xl font-bold">Join SkillSwap as...</h1>
+              <h1 className="text-3xl font-bold">Join KidCare as...</h1>
               <p className="text-muted-foreground">
                 Select your role to continue registration
               </p>
