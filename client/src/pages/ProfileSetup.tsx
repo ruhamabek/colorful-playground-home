@@ -251,24 +251,7 @@ function ProfileSetup() {
             </div>
 
             {/* Common fields */}
-              <h3 className="font-semibold mb-1">Phone Number</h3>
-            <Input
-             
-              value={formData.phoneNum}
-              onChange={(e) =>
-                setFormData({ ...formData, phoneNum: e.target.value })
-              }
-              required
-            />
-            <h3 className="font-semibold mb-1">Address</h3>
-            <Input
-              
-              value={formData.address}
-              onChange={(e) =>
-                setFormData({ ...formData, address: e.target.value })
-              }
-              required
-            />
+    
             <div>
               <label className="block font-medium mb-1">Phone Number</label>
               <Input
@@ -294,18 +277,7 @@ function ProfileSetup() {
             {/* Role-specific fields */}
             {userRole === "parent" && (
               <>
-                <h3 className="font-semibold mb-1">Number of Children</h3>
-                <Input
-                   
-                  type="number"
-                  value={formData.childrenCount}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      childrenCount: parseInt(e.target.value) || 0,
-                    })
-                  }
-                />
+
                 <div>
                   <label className="block font-medium mb-1">Number of Children</label>
                   <Input

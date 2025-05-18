@@ -16,7 +16,8 @@ import {
   Zap,
   ArrowRight,
   Phone,
-  Clock
+  Clock,
+  
 } from "lucide-react";
 import {
   Card,
@@ -122,6 +123,7 @@ const Profile = () => {
               </div>
               {user.childrenAges.length > 0 && (
                 <div className="flex items-center gap-2">
+                   <User className="h-5 w-5 text-primary" />
                   <span className="text-lg font-medium">
                     Ages: {user.childrenAges.join(", ")}
                   </span>

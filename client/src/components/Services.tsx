@@ -11,6 +11,7 @@ import {
   Car,
   
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const servicesData = [
   {
@@ -32,7 +33,7 @@ const servicesData = [
 
 const Services = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -121,18 +122,22 @@ const Services = () => {
             </div>
           ))}
         </div>
-        
         <div className="mt-16 text-center">
-          <motion.a
+          <motion.button
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            href="#contact"
             className="btn-primary inline-flex"
+            onClick={() => {
+              // Use useNavigate inside the component
+              // So move useNavigate hook to the top of Services component
+              // and call navigate('/sign-up') here
+              navigate('/browse');
+            }}
           >
-            Schedule a Tour
-          </motion.a>
+            Find Your Service Provider
+          </motion.button>
         </div>
       </div>
     </section>
