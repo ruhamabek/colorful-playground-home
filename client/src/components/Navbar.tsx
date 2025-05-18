@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Phone, LogIn, User, Bell, LogOut } from "lucide-react";
+import { Menu, X, Phone, LogIn, User, Bell, LogOut, Search} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -76,15 +76,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             {session ? (
               <>
-                {session.user.role === "parent" && (
-                  <Link
-                    to="/dashboard"
-                    className="font-medium text-gray-600 hover:text-kidcare-magenta transition-colors duration-300"
-                  >
-                    Dashboard
-                  </Link>
-                )}
-
+       
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <button className="flex items-center space-x-2 focus:outline-none">
@@ -109,6 +101,21 @@ const Navbar = () => {
                       <LogOut className="mr-2 h-4 w-4" />
                       <span>Log out</span>
                     </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    {session.user.role === "parent" && (
+                      <>
+                     <DropdownMenuItem onClick={() => navigate("/dashboard")}>
+                        <Bell className="mr-2 h-4 w-4" />
+                        <span>Dashboard</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={() => navigate("/browse")}>
+                        <Search className="mr-2 h-4 w-4" />
+                        <span>Browse</span>
+                      </DropdownMenuItem>
+                      </>
+
+                    )}
                   </DropdownMenuContent>
                 </DropdownMenu>
               </>
@@ -161,7 +168,7 @@ const Navbar = () => {
               (item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={`/${item.toLowerCase()}`}
                   className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -173,13 +180,23 @@ const Navbar = () => {
             {session ? (
               <div className="py-3 flex flex-col space-y-3">
                 {session.user.role === "parent" && (
-                  <Link
+                  <>
+                   <Link
                     to="/dashboard"
                     className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Dashboard
                   </Link>
+                       <Link
+                    to="/browse"
+                    className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Browse
+                  </Link>
+                  </>
+ 
                 )}
                 <Link
                   to="/profile"
