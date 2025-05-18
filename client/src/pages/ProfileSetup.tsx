@@ -251,7 +251,6 @@ function ProfileSetup() {
             </div>
 
             {/* Common fields */}
-<<<<<<< HEAD
               <h3 className="font-semibold mb-1">Phone Number</h3>
             <Input
               label="Phone Number"
@@ -270,7 +269,6 @@ function ProfileSetup() {
               }
               required
             />
-=======
             <div>
               <label className="block font-medium mb-1">Phone Number</label>
               <Input
@@ -292,12 +290,10 @@ function ProfileSetup() {
                 required
               />
             </div>
->>>>>>> 5eb295cd9bc757f6c7a7285761bcce59a5884d7d
 
             {/* Role-specific fields */}
             {userRole === "parent" && (
               <>
-<<<<<<< HEAD
                 <h3 className="font-semibold mb-1">Number of Children</h3>
                 <Input
                   label="Number of Children"
@@ -310,7 +306,6 @@ function ProfileSetup() {
                     })
                   }
                 />
-=======
                 <div>
                   <label className="block font-medium mb-1">Number of Children</label>
                   <Input
@@ -324,7 +319,6 @@ function ProfileSetup() {
                     }
                   />
                 </div>
->>>>>>> 5eb295cd9bc757f6c7a7285761bcce59a5884d7d
 
                 <div>
                   <h3 className="font-semibold mb-1">Children's Ages</h3>
@@ -372,7 +366,6 @@ function ProfileSetup() {
                     className="w-full p-2 border rounded-md"
                   />
                 </div>
-<<<<<<< HEAD
                   <h3 className="font-semibold mb-1">Car Type</h3>
                 <Input
                   label="Car Type"
@@ -401,7 +394,6 @@ function ProfileSetup() {
                     })
                   }
                 />
-=======
 
                 <div>
                   <label className="block font-medium mb-1">Car Type</label>
@@ -436,7 +428,6 @@ function ProfileSetup() {
                     }
                   />
                 </div>
->>>>>>> 5eb295cd9bc757f6c7a7285761bcce59a5884d7d
 
                 <div>
                   <h3 className="font-semibold mb-1">Insurance Document</h3>
@@ -456,37 +447,26 @@ function ProfileSetup() {
             )}
 
             {(userRole === "nanny" || userRole === "tutor") && (
-<<<<<<< HEAD
-              <>
-              <h3 className="font-semibold mb-1">Years of Experience</h3>
-              <Input
-                label="Years of Experience"
-                type="number"
-                value={formData.experience}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    experience: parseInt(e.target.value) || 0,
-                  })
-                }
-              />
-              </>
-              
-=======
-              <div>
-                <label className="block font-medium mb-1">Years of Experience</label>
+              <><>
+                <h3 className="font-semibold mb-1">Years of Experience</h3>
                 <Input
+                  label="Years of Experience"
                   type="number"
                   value={formData.experience}
-                  onChange={(e) =>
-                    setFormData({
+                  onChange={(e) => setFormData({
+                    ...formData,
+                    experience: parseInt(e.target.value) || 0,
+                  })} />
+              </><div>
+                  <label className="block font-medium mb-1">Years of Experience</label>
+                  <Input
+                    type="number"
+                    value={formData.experience}
+                    onChange={(e) => setFormData({
                       ...formData,
                       experience: parseInt(e.target.value) || 0,
-                    })
-                  }
-                />
-              </div>
->>>>>>> 5eb295cd9bc757f6c7a7285761bcce59a5884d7d
+                    })} />
+                </div></>
             )}
 
             {userRole === "nanny" && (
@@ -521,7 +501,6 @@ function ProfileSetup() {
 
             {userRole === "tutor" && (
               <>
-<<<<<<< HEAD
                 <h3 className="font-semibold mb-1">Certifications</h3>
                 <Input
                   label="School/University"
@@ -530,7 +509,6 @@ function ProfileSetup() {
                     setFormData({ ...formData, school: e.target.value })
                   }
                 />
-=======
                 <div>
                   <label className="block font-medium mb-1">School/University</label>
                   <Input
@@ -540,7 +518,6 @@ function ProfileSetup() {
                     }
                   />
                 </div>
->>>>>>> 5eb295cd9bc757f6c7a7285761bcce59a5884d7d
 
                 <div>
                   <h3 className="font-semibold mb-1">Education Certificate</h3>
