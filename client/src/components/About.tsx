@@ -103,9 +103,6 @@ const About = () => {
               ))}
             </div>
             
-            <a href="#contact" className="btn-primary inline-flex mt-2">
-              Get to Know Us
-            </a>
           </motion.div>
         </div>
       </div>

@@ -11,10 +11,7 @@ const Footer = () => {
           {/* Column 1: About */}
           <div>
             <div className="flex items-center mb-4">
-              <div className="relative h-8 w-8 mr-2">
-                <div className="absolute top-0 left-0 h-full w-full rounded-full bg-kidcare-magenta"></div>
-                <div className="absolute bottom-0 left-3 h-5 w-5 rounded-bl-full bg-white/80"></div>
-              </div>
+          
               <span className="text-2xl font-bold">KidCare</span>
             </div>
             <p className="text-white/80 mb-4">
@@ -55,7 +52,7 @@ const Footer = () => {
           </div>
           
           {/* Column 3: Programs */}
-          <div>
+          {/* <div>
             <h3 className="text-lg font-bold mb-5 relative inline-block">
               Our Programs
               <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-kidcare-magenta"></span>
@@ -70,7 +67,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
           
           {/* Column 4: Working Hours */}
           <div>
@@ -80,8 +77,8 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li className="flex justify-between text-white/80">
-                <span>Monday - Friday:</span>
-                <span>7:00 AM - 6:00 PM</span>
+                <span>Monday - Friday</span>
+                <span>2:00 AM - 2:00 PM</span>
               </li>
               <li className="flex justify-between text-white/80">
                 <span>Saturday:</span>
@@ -100,7 +97,7 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Subscription Form */}
+        {/* Subscription Form
         <div className="py-8 border-t border-b border-white/10 mb-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
@@ -120,13 +117,13 @@ const Footer = () => {
               </form>
             </div>
           </div>
-        </div>
+        </div> */}
         
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-white/70">
           <p>© 2025 KidCare. All rights reserved.</p>
           <p className="flex items-center">
-            Made with <Heart size={16} className="mx-1 text-kidcare-magenta" /> for families
+            Made for families
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>

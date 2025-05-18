@@ -2,10 +2,11 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Heart, Shield, Clock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+  const Navigate = useNavigate();
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -78,7 +79,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
-              <a href="#contact" className="btn-primary flex items-center justify-center">
+              <a href="#contact" className="btn-primary flex items-center justify-center" onClick={() => {Navigate('/sign-up');}}>
                 Enroll Your Child
                 <ArrowRight size={18} className="ml-2" />
               </a>

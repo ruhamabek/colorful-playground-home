@@ -58,7 +58,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10">
-            {["Home", "Services", "About", "Testimonials", "Contact"].map(
+            {["Home", "Services", "About",  "Contact"].map(
               (item) => (
                 <a
                   key={item}
@@ -157,7 +157,7 @@ const Navbar = () => {
           className="md:hidden bg-white"
         >
           <div className="px-4 py-3 space-y-2 border-b border-gray-200">
-            {["Home", "Services", "About", "Testimonials", "Contact"].map(
+            {["Home", "Services", "About", "Contact"].map(
               (item) => (
                 <a
                   key={item}
