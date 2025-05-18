@@ -31,6 +31,7 @@ const SingleProfilePage = () => {
   const [error, setError] = useState<string | null>(null);
   const session = authClient.useSession();
   const currentUserId = session.data?.user?.id;
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
