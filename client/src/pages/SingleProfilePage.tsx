@@ -315,7 +315,7 @@ const SingleProfilePage = () => {
           </Card>
 
           {/* Action Buttons */}
-          {profile.userid !== currentUserId && (
+          {/* {profile.userid !== currentUserId && (
             <div className="flex gap-4 justify-end">
               <Button
                 variant="outline"
@@ -331,7 +331,7 @@ const SingleProfilePage = () => {
                 Hire Now
               </Button>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
