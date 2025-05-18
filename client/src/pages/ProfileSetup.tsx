@@ -13,6 +13,7 @@ function ProfileSetup() {
   const navigate = useNavigate();
   const session = authClient.useSession();
   const userRole = session.data?.user?.role;
+  console.log("User role:", userRole);
   const {
     profile,
     isLoading,
@@ -75,7 +76,7 @@ function ProfileSetup() {
         certifications: profile.certifications || [],
         certificationUrls: profile.certificationUrls || [],
         school: profile.school || "",
-        educationLevel: profile.educationLevel || "highschool",
+        educationLevel: profile.educationLevel || "",
         educationUrl: profile.educationUrl || "",
         experience: profile.experience || 0,
         isVerified: profile.isVerified || false,
@@ -174,11 +175,7 @@ function ProfileSetup() {
     );
   }
 
-  if (isError) {
-    return (
-      <div className="text-red-500 text-center">Error loading profile</div>
-    );
-  }
+
 
   // File preview component
   const FilePreview = ({
@@ -254,38 +251,44 @@ function ProfileSetup() {
             </div>
 
             {/* Common fields */}
-            <Input
-              label="Phone Number"
-              value={formData.phoneNum}
-              onChange={(e) =>
-                setFormData({ ...formData, phoneNum: e.target.value })
-              }
-              required
-            />
+            <div>
+              <label className="block font-medium mb-1">Phone Number</label>
+              <Input
+                value={formData.phoneNum}
+                onChange={(e) =>
+                  setFormData({ ...formData, phoneNum: e.target.value })
+                }
+                required
+              />
+            </div>
 
-            <Input
-              label="Address"
-              value={formData.address}
-              onChange={(e) =>
-                setFormData({ ...formData, address: e.target.value })
-              }
-              required
-            />
+            <div>
+              <label className="block font-medium mb-1">Address</label>
+              <Input
+                value={formData.address}
+                onChange={(e) =>
+                  setFormData({ ...formData, address: e.target.value })
+                }
+                required
+              />
+            </div>
 
             {/* Role-specific fields */}
             {userRole === "parent" && (
               <>
-                <Input
-                  label="Number of Children"
-                  type="number"
-                  value={formData.childrenCount}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      childrenCount: parseInt(e.target.value) || 0,
-                    })
-                  }
-                />
+                <div>
+                  <label className="block font-medium mb-1">Number of Children</label>
+                  <Input
+                    type="number"
+                    value={formData.childrenCount}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        childrenCount: parseInt(e.target.value) || 0,
+                      })
+                    }
+                  />
+                </div>
 
                 <div>
                   <h3 className="font-semibold mb-2">Children's Ages</h3>
@@ -334,33 +337,39 @@ function ProfileSetup() {
                   />
                 </div>
 
-                <Input
-                  label="Car Type"
-                  value={formData.carType}
-                  onChange={(e) =>
-                    setFormData({ ...formData, carType: e.target.value })
-                  }
-                />
+                <div>
+                  <label className="block font-medium mb-1">Car Type</label>
+                  <Input
+                    value={formData.carType}
+                    onChange={(e) =>
+                      setFormData({ ...formData, carType: e.target.value })
+                    }
+                  />
+                </div>
 
-                <Input
-                  label="License Plate Number"
-                  value={formData.plateNum}
-                  onChange={(e) =>
-                    setFormData({ ...formData, plateNum: e.target.value })
-                  }
-                />
+                <div>
+                  <label className="block font-medium mb-1">License Plate Number</label>
+                  <Input
+                    value={formData.plateNum}
+                    onChange={(e) =>
+                      setFormData({ ...formData, plateNum: e.target.value })
+                    }
+                  />
+                </div>
 
-                <Input
-                  label="Years of Driving Experience"
-                  type="number"
-                  value={formData.drivingExperience}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      drivingExperience: parseInt(e.target.value) || 0,
-                    })
-                  }
-                />
+                <div>
+                  <label className="block font-medium mb-1">Years of Driving Experience</label>
+                  <Input
+                    type="number"
+                    value={formData.drivingExperience}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        drivingExperience: parseInt(e.target.value) || 0,
+                      })
+                    }
+                  />
+                </div>
 
                 <div>
                   <h3 className="font-semibold mb-2">Insurance Document</h3>
@@ -380,17 +389,19 @@ function ProfileSetup() {
             )}
 
             {(userRole === "nanny" || userRole === "tutor") && (
-              <Input
-                label="Years of Experience"
-                type="number"
-                value={formData.experience}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    experience: parseInt(e.target.value) || 0,
-                  })
-                }
-              />
+              <div>
+                <label className="block font-medium mb-1">Years of Experience</label>
+                <Input
+                  type="number"
+                  value={formData.experience}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      experience: parseInt(e.target.value) || 0,
+                    })
+                  }
+                />
+              </div>
             )}
 
             {userRole === "nanny" && (
@@ -425,13 +436,15 @@ function ProfileSetup() {
 
             {userRole === "tutor" && (
               <>
-                <Input
-                  label="School/University"
-                  value={formData.school}
-                  onChange={(e) =>
-                    setFormData({ ...formData, school: e.target.value })
-                  }
-                />
+                <div>
+                  <label className="block font-medium mb-1">School/University</label>
+                  <Input
+                    value={formData.school}
+                    onChange={(e) =>
+                      setFormData({ ...formData, school: e.target.value })
+                    }
+                  />
+                </div>
 
                 <div>
                   <h3 className="font-semibold mb-2">Education Certificate</h3>

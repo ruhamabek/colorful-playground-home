@@ -108,22 +108,25 @@ const Profile = () => {
     switch (role) {
       case "parent":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-5 w-5 text-primary" />
-              <span className="text-lg font-medium">
-                {user.childrenCount}{" "}
-                {user.childrenCount === 1 ? "child" : "children"}
-              </span>
-            </div>
-            {user.childrenAges.length > 0 && (
+          <>
+            <Header />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="flex items-center gap-2">
+                <ShieldCheck className="h-5 w-5 text-primary" />
                 <span className="text-lg font-medium">
-                  Ages: {user.childrenAges.join(", ")}
+                  {user.childrenCount}{" "}
+                  {user.childrenCount === 1 ? "child" : "children"}
                 </span>
               </div>
-            )}
-          </div>
+              {user.childrenAges.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-medium">
+                    Ages: {user.childrenAges.join(", ")}
+                  </span>
+                </div>
+              )}
+            </div>
+          </>
         );
       case "driver":
         return (
