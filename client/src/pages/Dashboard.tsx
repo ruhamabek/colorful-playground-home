@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CalendarDays, Clock, MessageSquare, LogOut, User, Settings, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -32,11 +32,13 @@ const Dashboard = () => {
       >
         <div className="p-6">
           <div className="flex items-center">
-            <img
-                src="/lovable-uploads/86ba6735-e1a9-4ab5-af57-4a7bc2a80931.png"
-                alt="KidCare Logo"
-                className='h-10 w-28'
-              /> 
+            <Link to="/" className="flex items-center">
+                          <img
+                            src="/lovable-uploads/86ba6735-e1a9-4ab5-af57-4a7bc2a80931.png"
+                            alt="KidCare Logo"
+                            className="h-10 w-28"
+                          />
+                    </Link>
           </div>
         </div>
         
