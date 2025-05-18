@@ -191,9 +191,14 @@ export default function ConnectionsPage() {
           ) : (
             <div className="flex gap-2">
               {paymentStatus ? (
-                <Button asChild size="icon" className="rounded-full">
-                  <Link to={`/chat/${user}`}>💬</Link>
-                </Button>
+                <>
+                  <Button asChild size="icon" className="rounded-full">
+                    <Link to={`/chat/${user}`}>💬</Link>
+                  </Button>
+                  <Button asChild size="icon" className="rounded-full">
+                    <Link to={`/profile/${user}`}>profile</Link>
+                  </Button>
+                </>
               ) : isParent && type === "acceptedBy" ? (
                 <Button
                   size="sm"
