@@ -38,10 +38,10 @@ function ProfileSetup() {
     drivingExperience: 0,
     insuranceUrl: "",
     // Tutor/Nanny fields
-    certifications: [] as string[],
-    certificationUrls: [] as string[],
+    certifications: '',
+    certificationUrls:"",
     school: "",
-    educationLevel: "highschool",
+    educationLevel: "",
     educationUrl: "",
     experience: 0,
     isVerified: false,
@@ -53,6 +53,7 @@ function ProfileSetup() {
     licenseFile: null as File | null,
     educationFile: null as File | null,
     insuranceFile: null as File | null,
+    nannyFile: null as File | null,
   });
 
   const [certification, setCertification] = useState("");
@@ -73,8 +74,8 @@ function ProfileSetup() {
         plateNum: profile.plateNum || "",
         drivingExperience: profile.drivingExperience || 0,
         insuranceUrl: profile.insuranceUrl || "",
-        certifications: profile.certifications || [],
-        certificationUrls: profile.certificationUrls || [],
+        certifications: profile.certifications || '',
+        certificationUrls: profile.certificationUrls ||"",
         school: profile.school || "",
         educationLevel: profile.educationLevel || "",
         educationUrl: profile.educationUrl || "",
@@ -93,24 +94,7 @@ function ProfileSetup() {
     };
 
   // Certification management
-  const addCertification = () => {
-    const cert = certification.trim();
-    if (!cert) return;
-    if (!formData.certifications.includes(cert)) {
-      setFormData((prev) => ({
-        ...prev,
-        certifications: [...prev.certifications, cert],
-      }));
-      setCertification("");
-    }
-  };
-
-  const removeCertification = (index: number) => {
-    setFormData((prev) => ({
-      ...prev,
-      certifications: prev.certifications.filter((_, i) => i !== index),
-    }));
-  };
+  
 
   // Child age management
   const addChildAge = () => {
@@ -141,6 +125,7 @@ function ProfileSetup() {
         files.licenseFile ? uploadFile(files.licenseFile) : null,
         files.educationFile ? uploadFile(files.educationFile) : null,
         files.insuranceFile ? uploadFile(files.insuranceFile) : null,
+        files.nannyFile ? uploadFile(files.nannyFile) : null,
       ]);
 
       const updatedFormData = {
@@ -149,6 +134,7 @@ function ProfileSetup() {
         licenseUrl: uploads[1]?.secure_url || formData.licenseUrl,
         educationUrl: uploads[2]?.secure_url || formData.educationUrl,
         insuranceUrl: uploads[3]?.secure_url || formData.insuranceUrl,
+        certificationUrls: uploads[4]?.secure_url || formData.certificationUrls,
         userid: session.data?.user?.id,
       };
 
@@ -174,6 +160,8 @@ function ProfileSetup() {
       </div>
     );
   }
+
+
 
   // File preview component
   const FilePreview = ({
@@ -249,6 +237,7 @@ function ProfileSetup() {
             </div>
 
             {/* Common fields */}
+
             <div>
               <label className="block font-medium mb-1">Phone Number</label>
               <Input
@@ -334,10 +323,9 @@ function ProfileSetup() {
                     accept="image/*,.pdf"
                     onChange={handleFileChange("licenseFile")}
                     className="w-full p-2 border rounded-md"
-                    required
                   />
                 </div>
-                  <h3 className="font-semibold mb-1">Car Type</h3>
+                <h3 className="font-semibold mb-1">Car Type</h3>
                 <Input
                   value={formData.carType}
                   onChange={(e) =>
@@ -351,7 +339,9 @@ function ProfileSetup() {
                     setFormData({ ...formData, plateNum: e.target.value })
                   }
                 />
-                <h3 className="font-semibold mb-1">Years of Driving Experience</h3>
+                <h3 className="font-semibold mb-1">
+                  Years of Driving Experience
+                </h3>
                 <Input
                   type="number"
                   value={formData.drivingExperience}
@@ -361,47 +351,7 @@ function ProfileSetup() {
                       drivingExperience: parseInt(e.target.value) || 0,
                     })
                   }
-                /> */}
-
-                <div>
-                  <label className="block font-medium mb-1">Car Type</label>
-                  <Input
-                    value={formData.carType}
-                    onChange={(e) =>
-                      setFormData({ ...formData, carType: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-medium mb-1">
-                    License Plate Number
-                  </label>
-                  <Input
-                    value={formData.plateNum}
-                    onChange={(e) =>
-                      setFormData({ ...formData, plateNum: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-medium mb-1">
-                    Years of Driving Experience
-                  </label>
-                  <Input
-                    type="number"
-                    value={formData.drivingExperience}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        drivingExperience: parseInt(e.target.value) || 0,
-                      })
-                    }
-                  />
-                </div>
+                />
 
                 <div>
                   <h3 className="font-semibold mb-1">Insurance Document</h3>
@@ -415,75 +365,52 @@ function ProfileSetup() {
                     accept="image/*,.pdf"
                     onChange={handleFileChange("insuranceFile")}
                     className="w-full p-2 border rounded-md"
-                    required
                   />
                 </div>
               </>
             )}
 
             {(userRole === "nanny" || userRole === "tutor") && (
-              <><>
-                <h3 className="font-semibold mb-1">Years of Experience</h3>
-                <Input
-                  
-                  type="number"
-                  value={formData.experience}
-                  onChange={(e) => setFormData({
-                    ...formData,
-                    experience: parseInt(e.target.value) || 0,
-                  })} />
-              </><div>
-                  <label className="block font-medium mb-1">Years of Experience</label>
+              <>
+                <>
+                  <h3 className="font-semibold mb-1">Years of Experience</h3>
                   <Input
                     type="number"
                     value={formData.experience}
-                    onChange={(e) => setFormData({
-                      ...formData,
-                      experience: parseInt(e.target.value) || 0,
-                    })} />
-                </div></>
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        experience: parseInt(e.target.value) || 0,
+                      })
+                    }
+                  />
+                </>
+
+              </>
             )}
 
             {userRole === "nanny" && (
               <div>
-                <h3 className="font-semibold mb-1">Legal Documents</h3>
-                <div className="flex gap-2">
-                  <Input
-                    value={certification}
-                    onChange={(e) => setCertification(e.target.value)}
-                    placeholder="Add document"
-                    required
+                <div>
+                  <h3 className="font-semibold mb-1">certificate Document</h3>
+                  <FilePreview
+                    file={files.nannyFile}
+                    url={formData.certificationUrls}
+                    alt="nanny document"
                   />
-                  <Button type="button" onClick={addCertification}>
-                    Add
-                  </Button>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {formData.certifications.map((cert, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-2 bg-gray-200 px-2 py-1 rounded-md"
-                    >
-                      <span>{cert}</span>
-                      <X
-                        className="cursor-pointer"
-                        onClick={() => removeCertification(index)}
-                      />
-                    </div>
-                  ))}
+                  <input
+                    type="file"
+                    accept="image/*,.pdf"
+                    onChange={handleFileChange("nannyFile")}
+                    className="w-full p-2 border rounded-md"
+                  />
                 </div>
               </div>
             )}
 
             {userRole === "tutor" && (
               <>
-               {/* <label className="block font-medium mb-1">Certifications</label>
-                <Input
-                  value={formData.school}
-                  onChange={(e) =>
-                    setFormData({ ...formData, school: e.target.value })
-                  }
-                /> */}
+                
                 <div>
                   <label className="block font-medium mb-1">
                     School/University
@@ -508,9 +435,8 @@ function ProfileSetup() {
                     accept="image/*,.pdf"
                     onChange={handleFileChange("educationFile")}
                     className="w-full p-2 border rounded-md"
-                    required
                   />
-                </div>
+                </div>         
 
                 <div className="space-y-2">
                   <label className="block font-medium">Education Level</label>
