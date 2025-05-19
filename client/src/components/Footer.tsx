@@ -40,7 +40,7 @@ const Footer = () => {
               <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-kidcare-magenta"></span>
             </h3>
             <ul className="space-y-3">
-              {['Home', 'About Us', 'Services', 'Programs', 'Contact'].map((item, index) => (
+              {['Home' , 'Services'].map((item, index) => (
                 <li key={index}>
                   <a href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-white/80 hover:text-white flex items-center transition-colors duration-300">
                     <ChevronRight size={16} className="mr-1" />
