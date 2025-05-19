@@ -334,9 +334,10 @@ function ProfileSetup() {
                     accept="image/*,.pdf"
                     onChange={handleFileChange("licenseFile")}
                     className="w-full p-2 border rounded-md"
+                    required
                   />
                 </div>
-                <h3 className="font-semibold mb-1">Car Type</h3>
+                  <h3 className="font-semibold mb-1">Car Type</h3>
                 <Input
                   value={formData.carType}
                   onChange={(e) =>
@@ -350,9 +351,7 @@ function ProfileSetup() {
                     setFormData({ ...formData, plateNum: e.target.value })
                   }
                 />
-                <h3 className="font-semibold mb-1">
-                  Years of Driving Experience
-                </h3>
+                <h3 className="font-semibold mb-1">Years of Driving Experience</h3>
                 <Input
                   type="number"
                   value={formData.drivingExperience}
@@ -362,7 +361,7 @@ function ProfileSetup() {
                       drivingExperience: parseInt(e.target.value) || 0,
                     })
                   }
-                />
+                /> */}
 
                 <div>
                   <label className="block font-medium mb-1">Car Type</label>
@@ -371,6 +370,7 @@ function ProfileSetup() {
                     onChange={(e) =>
                       setFormData({ ...formData, carType: e.target.value })
                     }
+                    required
                   />
                 </div>
 
@@ -383,6 +383,7 @@ function ProfileSetup() {
                     onChange={(e) =>
                       setFormData({ ...formData, plateNum: e.target.value })
                     }
+                    required
                   />
                 </div>
 
@@ -414,52 +415,44 @@ function ProfileSetup() {
                     accept="image/*,.pdf"
                     onChange={handleFileChange("insuranceFile")}
                     className="w-full p-2 border rounded-md"
+                    required
                   />
                 </div>
               </>
             )}
 
             {(userRole === "nanny" || userRole === "tutor") && (
-              <>
-                <>
-                  <h3 className="font-semibold mb-1">Years of Experience</h3>
+              <><>
+                <h3 className="font-semibold mb-1">Years of Experience</h3>
+                <Input
+                  
+                  type="number"
+                  value={formData.experience}
+                  onChange={(e) => setFormData({
+                    ...formData,
+                    experience: parseInt(e.target.value) || 0,
+                  })} />
+              </><div>
+                  <label className="block font-medium mb-1">Years of Experience</label>
                   <Input
                     type="number"
                     value={formData.experience}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        experience: parseInt(e.target.value) || 0,
-                      })
-                    }
-                  />
-                </>
-                <div>
-                  <label className="block font-medium mb-1">
-                    Years of Experience
-                  </label>
-                  <Input
-                    type="number"
-                    value={formData.experience}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        experience: parseInt(e.target.value) || 0,
-                      })
-                    }
-                  />
-                </div>
-              </>
+                    onChange={(e) => setFormData({
+                      ...formData,
+                      experience: parseInt(e.target.value) || 0,
+                    })} />
+                </div></>
             )}
 
             {userRole === "nanny" && (
               <div>
-                <h3 className="font-semibold mb-1">Certifications</h3>
+                <h3 className="font-semibold mb-1">Legal Documents</h3>
                 <div className="flex gap-2">
                   <Input
                     value={certification}
                     onChange={(e) => setCertification(e.target.value)}
-                    placeholder="Add certification"
+                    placeholder="Add document"
+                    required
                   />
                   <Button type="button" onClick={addCertification}>
                     Add
@@ -484,13 +477,13 @@ function ProfileSetup() {
 
             {userRole === "tutor" && (
               <>
-                <h3 className="font-semibold mb-1">Certifications</h3>
+               {/* <label className="block font-medium mb-1">Certifications</label>
                 <Input
                   value={formData.school}
                   onChange={(e) =>
                     setFormData({ ...formData, school: e.target.value })
                   }
-                />
+                /> */}
                 <div>
                   <label className="block font-medium mb-1">
                     School/University
@@ -515,6 +508,7 @@ function ProfileSetup() {
                     accept="image/*,.pdf"
                     onChange={handleFileChange("educationFile")}
                     className="w-full p-2 border rounded-md"
+                    required
                   />
                 </div>
 
