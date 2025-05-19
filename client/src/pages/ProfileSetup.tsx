@@ -175,8 +175,6 @@ function ProfileSetup() {
     );
   }
 
-
-
   // File preview component
   const FilePreview = ({
     file,
@@ -251,7 +249,6 @@ function ProfileSetup() {
             </div>
 
             {/* Common fields */}
-    
             <div>
               <label className="block font-medium mb-1">Phone Number</label>
               <Input
@@ -277,9 +274,10 @@ function ProfileSetup() {
             {/* Role-specific fields */}
             {userRole === "parent" && (
               <>
-
                 <div>
-                  <label className="block font-medium mb-1">Number of Children</label>
+                  <label className="block font-medium mb-1">
+                    Number of Children
+                  </label>
                   <Input
                     type="number"
                     value={formData.childrenCount}
@@ -338,9 +336,8 @@ function ProfileSetup() {
                     className="w-full p-2 border rounded-md"
                   />
                 </div>
-                  <h3 className="font-semibold mb-1">Car Type</h3>
+                <h3 className="font-semibold mb-1">Car Type</h3>
                 <Input
-                 
                   value={formData.carType}
                   onChange={(e) =>
                     setFormData({ ...formData, carType: e.target.value })
@@ -348,15 +345,15 @@ function ProfileSetup() {
                 />
                 <h3 className="font-semibold mb-1">License Plate Number</h3>
                 <Input
-                  
                   value={formData.plateNum}
                   onChange={(e) =>
                     setFormData({ ...formData, plateNum: e.target.value })
                   }
                 />
-                <h3 className="font-semibold mb-1">Years of Driving Experience</h3>
+                <h3 className="font-semibold mb-1">
+                  Years of Driving Experience
+                </h3>
                 <Input
-                  
                   type="number"
                   value={formData.drivingExperience}
                   onChange={(e) =>
@@ -378,7 +375,9 @@ function ProfileSetup() {
                 </div>
 
                 <div>
-                  <label className="block font-medium mb-1">License Plate Number</label>
+                  <label className="block font-medium mb-1">
+                    License Plate Number
+                  </label>
                   <Input
                     value={formData.plateNum}
                     onChange={(e) =>
@@ -388,7 +387,9 @@ function ProfileSetup() {
                 </div>
 
                 <div>
-                  <label className="block font-medium mb-1">Years of Driving Experience</label>
+                  <label className="block font-medium mb-1">
+                    Years of Driving Experience
+                  </label>
                   <Input
                     type="number"
                     value={formData.drivingExperience}
@@ -419,26 +420,36 @@ function ProfileSetup() {
             )}
 
             {(userRole === "nanny" || userRole === "tutor") && (
-              <><>
-                <h3 className="font-semibold mb-1">Years of Experience</h3>
-                <Input
-                  
-                  type="number"
-                  value={formData.experience}
-                  onChange={(e) => setFormData({
-                    ...formData,
-                    experience: parseInt(e.target.value) || 0,
-                  })} />
-              </><div>
-                  <label className="block font-medium mb-1">Years of Experience</label>
+              <>
+                <>
+                  <h3 className="font-semibold mb-1">Years of Experience</h3>
                   <Input
                     type="number"
                     value={formData.experience}
-                    onChange={(e) => setFormData({
-                      ...formData,
-                      experience: parseInt(e.target.value) || 0,
-                    })} />
-                </div></>
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        experience: parseInt(e.target.value) || 0,
+                      })
+                    }
+                  />
+                </>
+                <div>
+                  <label className="block font-medium mb-1">
+                    Years of Experience
+                  </label>
+                  <Input
+                    type="number"
+                    value={formData.experience}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        experience: parseInt(e.target.value) || 0,
+                      })
+                    }
+                  />
+                </div>
+              </>
             )}
 
             {userRole === "nanny" && (
@@ -475,14 +486,15 @@ function ProfileSetup() {
               <>
                 <h3 className="font-semibold mb-1">Certifications</h3>
                 <Input
-                  
                   value={formData.school}
                   onChange={(e) =>
                     setFormData({ ...formData, school: e.target.value })
                   }
                 />
                 <div>
-                  <label className="block font-medium mb-1">School/University</label>
+                  <label className="block font-medium mb-1">
+                    School/University
+                  </label>
                   <Input
                     value={formData.school}
                     onChange={(e) =>
@@ -505,7 +517,7 @@ function ProfileSetup() {
                     className="w-full p-2 border rounded-md"
                   />
                 </div>
-            
+
                 <div className="space-y-2">
                   <label className="block font-medium">Education Level</label>
                   <select
