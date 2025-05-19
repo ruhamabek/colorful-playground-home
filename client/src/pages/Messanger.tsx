@@ -34,7 +34,7 @@ export default function Home() {
 
   const { id } = useParams();
 
-  console.log("this user datauser :", dataUser);
+  console.log("this user datauser this isssssssssssssssssss :", dataUser);
 
   console.log("Online Users:from hooks", onlineUsers);
   console.log("this is about upplode ", message);
@@ -163,15 +163,15 @@ export default function Home() {
       <header className="sticky top-0 h-16 bg-white">
         <Header />
         <div className="flex items-center  mt-14 gap-4 p-4">
-          <div>
-            <Avatar
+            <div>
+            <img
               width={50}
               height={50}
-              imageUrl={dataUser?.profileImage}
-              name={dataUser?.title}
-              userId={dataUser?.userid}
+              src={dataUser?.profileUrl}
+              alt={dataUser?.title}
+              className="rounded-full object-cover w-[50px] h-[50px]"
             />
-          </div>
+            </div>
           <div>
             <h3>{dataUser?.title}</h3>
             <p>online</p>

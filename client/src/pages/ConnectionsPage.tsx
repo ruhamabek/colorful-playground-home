@@ -25,7 +25,9 @@ export default function ConnectionsPage() {
   const role = session?.user?.role;
   const isParent = role === "parent";
   const [searchParams] = useSearchParams();
-
+console.log("requests requests requests:", requests);
+console.log("requests accepted accepted:", accepted);
+console.log("requests accepted acceptedBy:", acceptedBy);
   const {
     getALLconnectMutation,
     responseMutation,
