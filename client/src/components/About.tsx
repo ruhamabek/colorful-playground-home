@@ -5,10 +5,7 @@ import { Check } from 'lucide-react';
 
 const About = () => {
   const features = [
-    "Licensed childcare professionals",
-    "Low child-to-staff ratios",
-    "Safe, clean, and stimulating environments",
-    "Age-appropriate learning materials",
+    "Childcare professionals",
     "Regular communication with parents",
     "Structured daily routines with flexibility"
   ];
