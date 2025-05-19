@@ -18,8 +18,7 @@ import {
   Phone,
   Clock,
   CreditCard,
-  Calendar
-  
+  Calendar,
 } from "lucide-react";
 import {
   Card,
@@ -94,7 +93,7 @@ const Profile = () => {
     plateNum: profile.plateNum || "Not specified",
     drivingExperience: profile.drivingExperience || 0,
     insuranceUrl: profile.insuranceUrl || "",
-    certifications: profile.certifications || [],
+    certifications: profile.certificationUrls || "",
     school: profile.school || "Not specified",
     educationLevel: profile.educationLevel || "Not specified",
     educationUrl: profile.educationUrl || "",
@@ -125,7 +124,7 @@ const Profile = () => {
               </div>
               {user.childrenAges.length > 0 && (
                 <div className="flex items-center gap-2">
-                   <User className="h-5 w-5 text-primary" />
+                  <User className="h-5 w-5 text-primary" />
                   <span className="text-lg font-medium">
                     Ages: {user.childrenAges.join(", ")}
                   </span>
@@ -144,13 +143,13 @@ const Profile = () => {
                 <span className="text-lg font-medium">{user.carType}</span>
               </div>
               <div className="flex items-center gap-2">
-                <CreditCard  className="h-5 w-5 text-primary"/>
+                <CreditCard className="h-5 w-5 text-primary" />
                 <span className="text-lg font-medium">
                   Plate: {user.plateNum}
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-primary"/>
+                <Calendar className="h-5 w-5 text-primary" />
                 <span className="text-lg font-medium">
                   {user.drivingExperience}{" "}
                   {user.drivingExperience === 1 ? "year" : "years"} experience
@@ -207,21 +206,33 @@ const Profile = () => {
                   <span className="text-lg font-medium">{user.school}</span>
                 </div>
               )}
-              {user.certifications.length > 0 && (
-                <div className="col-span-2">
-                  <h3 className="font-semibold mb-2">Certifications</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {user.certifications.map((cert, index) => (
-                      <span
-                        key={index}
-                        className="bg-muted/50 px-3 py-1 rounded-full text-sm"
+
+              {role === "nanny" &&
+                user.certifications(
+                  <Card className="mb-8">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <Car className="h-5 w-5 text-primary" />
+                        nanny certification
+                      </CardTitle>
+                      <CardDescription>
+                        Verified nanny certification
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <Button
+                        variant="link"
+                        className="p-0 h-auto"
+                        onClick={() =>
+                          window.open(user.certifications, "_blank")
+                        }
                       >
-                        {cert}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
+                        View nanny certification
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                )}
             </div>
             {role === "tutor" && user.educationUrl && (
               <Card className="mb-8">
@@ -322,7 +333,7 @@ const Profile = () => {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                   <Phone className="h-5 w-5 text-primary" />
+                  <Phone className="h-5 w-5 text-primary" />
                   <span className="text-lg font-medium">{user.phoneNum}</span>
                 </div>
                 <div className="flex items-center gap-2">
