@@ -17,6 +17,8 @@ import {
   ArrowRight,
   Phone,
   Clock,
+  CreditCard,
+  Calendar
   
 } from "lucide-react";
 import {
@@ -142,11 +144,13 @@ const Profile = () => {
                 <span className="text-lg font-medium">{user.carType}</span>
               </div>
               <div className="flex items-center gap-2">
+                <CreditCard  className="h-5 w-5 text-primary"/>
                 <span className="text-lg font-medium">
                   Plate: {user.plateNum}
                 </span>
               </div>
               <div className="flex items-center gap-2">
+                <Calendar className="h-5 w-5 text-primary"/>
                 <span className="text-lg font-medium">
                   {user.drivingExperience}{" "}
                   {user.drivingExperience === 1 ? "year" : "years"} experience
