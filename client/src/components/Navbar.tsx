@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Phone, LogIn, User, Bell, LogOut, Search} from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  LogIn,
+  User,
+  Bell,
+  LogOut,
+  Search,
+} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -58,25 +67,22 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10">
-            {[ "Services", "About",  "Contact"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="group relative font-medium text-gray-700 hover:text-kidcare-magenta transition-colors duration-300"
-                >
-                  {item}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-kidcare-magenta transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              )
-            )}
+            {["Services", "About", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="group relative font-medium text-gray-700 hover:text-kidcare-magenta transition-colors duration-300"
+              >
+                {item}
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-kidcare-magenta transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            ))}
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
             {session ? (
               <>
-       
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <button className="flex items-center space-x-2 focus:outline-none">
@@ -96,6 +102,10 @@ const Navbar = () => {
                       <User className="mr-2 h-4 w-4" />
                       <span>Profile</span>
                     </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate("/connections")}>
+                      <Bell className="mr-2 h-4 w-4" />
+                      <span>connection</span>
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={handleLogout}>
                       <LogOut className="mr-2 h-4 w-4" />
@@ -104,17 +114,16 @@ const Navbar = () => {
                     <DropdownMenuSeparator />
                     {session.user.role === "parent" && (
                       <>
-                     {/* <DropdownMenuItem onClick={() => navigate("/dashboard")}>
+                        {/* <DropdownMenuItem onClick={() => navigate("/dashboard")}>
                         <Bell className="mr-2 h-4 w-4" />
                         <span>Dashboard</span>
                       </DropdownMenuItem> */}
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem onClick={() => navigate("/browse")}>
-                        <Search className="mr-2 h-4 w-4" />
-                        <span>Browse</span>
-                      </DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem onClick={() => navigate("/browse")}>
+                          <Search className="mr-2 h-4 w-4" />
+                          <span>Browse</span>
+                        </DropdownMenuItem>
                       </>
-
                     )}
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -164,39 +173,36 @@ const Navbar = () => {
           className="md:hidden bg-white"
         >
           <div className="px-4 py-3 space-y-2 border-b border-gray-200">
-            {["Services", "About", "Contact"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`/${item.toLowerCase()}`}
-                  className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              )
-            )}
+            {["Services", "About", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`/${item.toLowerCase()}`}
+                className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
 
             {session ? (
               <div className="py-3 flex flex-col space-y-3">
                 {session.user.role === "parent" && (
                   <>
-                   {/* <Link
+                    {/* <Link
                     to="/dashboard"
                     className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Dashboard
                   </Link> */}
-                       <Link
-                    to="/browse"
-                    className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Browse
-                  </Link>
+                    <Link
+                      to="/browse"
+                      className="block py-2 px-3 rounded-lg font-medium text-gray-700 hover:text-kidcare-magenta hover:bg-kidcare-light-pink transition-colors duration-300"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Browse
+                    </Link>
                   </>
- 
                 )}
                 <Link
                   to="/profile"

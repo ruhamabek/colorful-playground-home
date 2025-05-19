@@ -36,10 +36,10 @@ export default function ConnectionsPage() {
 
   // Check for payment verification on initial load
   useEffect(() => {
-    const tx_ref = searchParams.get("tx_ref");
+    const tx_ref = searchParams.get("amp;tx_ref");
     const receiver = searchParams.get("receiver");
 
-    console.log("tx_ref:", tx_ref);
+    console.log("amp;tx_ref:", tx_ref);
     console.log("receiver:", receiver);
     const verifyPaymentFromUrl = async () => {
       console.log("Verifying payment from URL");
@@ -191,9 +191,14 @@ export default function ConnectionsPage() {
           ) : (
             <div className="flex gap-2">
               {paymentStatus ? (
-                <Button asChild size="icon" className="rounded-full">
-                  <Link to={`/chat/${user}`}>💬</Link>
-                </Button>
+                <>
+                  <Button asChild size="icon" className="rounded-full">
+                    <Link to={`/chat/${user}`}>💬</Link>
+                  </Button>
+                  <Button asChild size="icon" className="rounded-full">
+                    <Link to={`/profile/${user}`}>profile</Link>
+                  </Button>
+                </>
               ) : isParent && type === "acceptedBy" ? (
                 <Button
                   size="sm"
