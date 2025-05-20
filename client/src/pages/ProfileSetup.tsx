@@ -13,7 +13,9 @@ function ProfileSetup() {
   const navigate = useNavigate();
   const session = authClient.useSession();
   const userRole = session.data?.user?.role;
-  console.log("User role:", userRole);
+  const name = session.data?.user?.name;
+
+  console.log("User role:", name);
   const {
     profile,
     isLoading,
@@ -25,6 +27,7 @@ function ProfileSetup() {
   // Initialize form data
   const [formData, setFormData] = useState({
     profileUrl: "",
+    name: name || "",
     phoneNum: "",
     address: "",
     status: "pending",
@@ -38,8 +41,8 @@ function ProfileSetup() {
     drivingExperience: 0,
     insuranceUrl: "",
     // Tutor/Nanny fields
-    certifications: '',
-    certificationUrls:"",
+    certifications: "",
+    certificationUrls: "",
     school: "",
     educationLevel: "",
     educationUrl: "",
@@ -64,6 +67,7 @@ function ProfileSetup() {
     if (profile) {
       setFormData({
         profileUrl: profile.profileUrl || "",
+        name: name || "",
         phoneNum: profile.phoneNum || "",
         address: profile.address || "",
         status: profile.status || "pending",
@@ -74,8 +78,8 @@ function ProfileSetup() {
         plateNum: profile.plateNum || "",
         drivingExperience: profile.drivingExperience || 0,
         insuranceUrl: profile.insuranceUrl || "",
-        certifications: profile.certifications || '',
-        certificationUrls: profile.certificationUrls ||"",
+        certifications: profile.certifications || "",
+        certificationUrls: profile.certificationUrls || "",
         school: profile.school || "",
         educationLevel: profile.educationLevel || "",
         educationUrl: profile.educationUrl || "",
@@ -94,7 +98,6 @@ function ProfileSetup() {
     };
 
   // Certification management
-  
 
   // Child age management
   const addChildAge = () => {
@@ -160,8 +163,6 @@ function ProfileSetup() {
       </div>
     );
   }
-
-
 
   // File preview component
   const FilePreview = ({
@@ -385,7 +386,6 @@ function ProfileSetup() {
                     }
                   />
                 </>
-
               </>
             )}
 
@@ -410,7 +410,6 @@ function ProfileSetup() {
 
             {userRole === "tutor" && (
               <>
-                
                 <div>
                   <label className="block font-medium mb-1">
                     School/University
@@ -436,7 +435,7 @@ function ProfileSetup() {
                     onChange={handleFileChange("educationFile")}
                     className="w-full p-2 border rounded-md"
                   />
-                </div>         
+                </div>
 
                 <div className="space-y-2">
                   <label className="block font-medium">Education Level</label>
