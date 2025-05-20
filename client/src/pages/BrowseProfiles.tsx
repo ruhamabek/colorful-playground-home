@@ -179,16 +179,22 @@ const BrowseProfiles = () => {
                 >
                   View Details <ArrowRight className="h-4 w-4" />
                 </Button>
-                <Button
-                  variant="default"
-                  onClick={() =>
-                    session
-                      ? handleConnect(profile?.userid, profile?.profileUrl)
-                      : navigate("/sign-up")
-                  }
-                >
-                  Ask for Service
-                </Button>
+                {profile.status === "active" ? (
+                  <Button
+                    variant="default"
+                    onClick={() =>
+                      session
+                        ? handleConnect(profile?.userid, profile?.profileUrl)
+                        : navigate("/sign-up")
+                    }
+                  >
+                    Ask for Service
+                  </Button>
+                ) : (
+                  <Badge variant="destructive" className="text-xs">
+                    Waiting for Verification
+                  </Badge>
+                )}
               </CardFooter>
             </Card>
           ))}
