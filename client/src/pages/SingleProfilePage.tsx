@@ -18,7 +18,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import  useProfile  from "@/api/ProfileApi";
+import useProfile from "@/api/ProfileApi";
 import { toast } from "@/components/ui/use-toast";
 import { authClient } from "@/lib/auth-client";
 
@@ -31,7 +31,6 @@ const SingleProfilePage = () => {
   const [error, setError] = useState<string | null>(null);
   const session = authClient.useSession();
   const currentUserId = session.data?.user?.id;
-  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -115,14 +114,29 @@ const SingleProfilePage = () => {
                 </AvatarFallback>
               </Avatar>
               <CardTitle className="text-center mt-4">
-                {profile.userid === currentUserId ? "Your Profile" : "Profile"}
+                {profile.userid === currentUserId
+                  ? "Your Profile"
+                  : profile.name || "Profile"}
               </CardTitle>
 
-              <div className="flex justify-center mt-2">
-                <Badge variant={profile.isVerified ? "default" : "secondary"}>
-                  {profile.isVerified ? "Verified" : "Pending Verification"}
-                </Badge>
-              </div>
+                <div className="flex justify-center mt-4">
+                  <Badge
+                    variant="outline"
+                    className={`px-4 py-2 text-base capitalize ${
+                      profile.status === "active"
+                        ? "border-blue-500 text-blue-600"
+                        : profile.status === "inactive"
+                        ? "border-red-500 text-red-600"
+                        : "border-green-500 text-green-600"
+                    }`}
+                  >
+                    {profile.status === "active"
+                      ? "Verified"
+                      : profile.status === "inactive"
+                      ? "Rejected"
+                      : "Pending"}
+                  </Badge>
+                </div>
             </CardHeader>
 
             <CardContent className="space-y-4 mt-4">
