@@ -125,4 +125,41 @@ const updateProfile = async (req: Request, res: Response) => {
   }
 };
 
-export default { getProfile, createProfile, allProfile, updateProfile };
+const updateProfileStatus = async (req: Request, res: Response) => {
+  try {
+    const { userid } = req.params;
+    const { status } = req.body;
+
+    console.log("Updating profile status for user:", userid, "to", status);
+    const updatedProfile = await Profile.findOneAndUpdate(
+      { userid: userid },
+      { $set: { status: status } },
+      { new: true, runValidators: true }
+    );
+    if (!updatedProfile) {
+      return res.status(404).json({
+        success: false,
+        message: "Profile not found",
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      message: "Profile status updated successfully",
+      profile: updatedProfile,
+    });
+  } catch (err) {
+    console.error("Error updating profile status:", err);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+export default {
+  getProfile,
+  createProfile,
+  allProfile,
+  updateProfile,
+  updateProfileStatus,
+};
