@@ -86,6 +86,26 @@ const useProfile = () => {
     enabled: false, // Don't fetch automatically, need to call refetch
   });
 
+  const updateProfileStatus = useMutation({
+    mutationFn: async ({
+      status,
+      userid,
+    }: {
+      status: string;
+      userid: string;
+    }) => {
+      if (!session.data?.user?.id) throw new Error("User not authenticated");
+
+      console.log("Updating status for user from API:", userid, "to", status);
+      const response = await axios.put(
+        `${API_BASE_URL}/status/${userid}`,
+        { status },
+        { withCredentials: true }
+      );
+      return response.data;
+    },
+    onSuccess: () => {},
+  });
   return {
     profile,
     isLoading,
@@ -98,6 +118,7 @@ const useProfile = () => {
     refetchAllProfiles,
     getALLProfileMutation,
     getsingleProfileMutation,
+    updateProfileStatus,
   };
 };
 
