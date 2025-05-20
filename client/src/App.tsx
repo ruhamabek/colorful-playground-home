@@ -13,6 +13,7 @@ import BrowseProfiles from "./pages/BrowseProfiles";
 import SingleProfilePage from "./pages/SingleProfilePage";
 import ConnectionsPage from "./pages/ConnectionsPage";
 import Messanger from "./pages/Messanger";
+import Admindashbored from "./pages/Admindashbored";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -29,7 +30,7 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/:userid" element={<SingleProfilePage />} />
           <Route path="/browse" element={<BrowseProfiles />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Admindashbored />} />
           <Route path="/chat/:id" element={<Messanger />} />
           {/* Redirect /forgot-password to sign-in for now */}
           <Route path="/forgot-password" element={<Navigate to="/sign-in" />} />

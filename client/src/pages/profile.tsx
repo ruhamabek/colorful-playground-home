@@ -81,7 +81,7 @@ const Profile = () => {
   }
 
   const user = {
-    name: session.user.name,
+    name: profile.name,
     avatar: profile.profileUrl || "",
     phoneNum: profile.phoneNum || "Not provided",
     address: profile.address || "Not provided",
@@ -207,7 +207,7 @@ const Profile = () => {
                 </div>
               )}
 
-              {role === "nanny" &&
+              {/* {role === "nanny" &&
                 user.certifications(
                   <Card className="mb-8">
                     <CardHeader>
@@ -232,7 +232,31 @@ const Profile = () => {
                       </Button>
                     </CardContent>
                   </Card>
-                )}
+                )} */}
+
+              {role === "nanny" && user.certifications && (
+                <Card className="mb-8">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Car className="h-5 w-5 text-primary" />
+                      Nanny Certification
+                    </CardTitle>
+                    <CardDescription>
+                      Verified nanny certification
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button
+                      variant="link"
+                      className="p-0 h-auto"
+                      onClick={() => window.open(user.certifications, "_blank")}
+                    >
+                      View Nanny Certification
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              )}
             </div>
             {role === "tutor" && user.educationUrl && (
               <Card className="mb-8">
