@@ -117,7 +117,9 @@ const SignIn = () => {
                   </svg>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-medium">Connect with service providers</h3>
+                  <h3 className="font-medium">
+                    Connect with service providers
+                  </h3>
                   <p className="text-sm text-muted-foreground">
                     Message directly with your chosen service provider.
                   </p>
@@ -170,7 +172,8 @@ const SignIn = () => {
                 <div className="space-y-1">
                   <h3 className="font-medium">Find perfect matches</h3>
                   <p className="text-sm text-muted-foreground">
-                    Our algorithm pairs you with service providers who complement your goals.
+                    Our algorithm pairs you with service providers who
+                    complement your goals.
                   </p>
                 </div>
               </div>

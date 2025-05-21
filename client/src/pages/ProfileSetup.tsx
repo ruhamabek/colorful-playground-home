@@ -164,54 +164,60 @@ function ProfileSetup() {
     );
   }
 
-  // File preview component
-  const FilePreview = ({
-    file,
-    url,
-    alt,
-  }: {
-    file: File | null;
-    url: string;
-    alt: string;
-  }) => {
-    if (file) {
-      return (
-        <div className="mb-2">
-          <img
-            src={URL.createObjectURL(file)}
-            alt={`New ${alt}`}
-            className="w-32 h-32 object-contain rounded-md border"
-          />
-          <p className="text-sm mt-1">
-            New {alt} selected: {file.name}
-          </p>
-        </div>
-      );
-    }
-    if (url) {
-      return (
-        <div className="mb-2">
-          <img
-            src={url}
-            alt={`Current ${alt}`}
-            className="w-32 h-32 object-contain rounded-md border"
-          />
-          <p className="text-sm mt-1">
-            Current {alt}:{" "}
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500"
-            >
-              View
-            </a>
-          </p>
-        </div>
-      );
-    }
+  if (userRole === "admin") {
+    navigate("/dashboard");
     return null;
-  };
+  }
+    
+
+    // File preview component
+    const FilePreview = ({
+      file,
+      url,
+      alt,
+    }: {
+      file: File | null;
+      url: string;
+      alt: string;
+    }) => {
+      if (file) {
+        return (
+          <div className="mb-2">
+            <img
+              src={URL.createObjectURL(file)}
+              alt={`New ${alt}`}
+              className="w-32 h-32 object-contain rounded-md border"
+            />
+            <p className="text-sm mt-1">
+              New {alt} selected: {file.name}
+            </p>
+          </div>
+        );
+      }
+      if (url) {
+        return (
+          <div className="mb-2">
+            <img
+              src={url}
+              alt={`Current ${alt}`}
+              className="w-32 h-32 object-contain rounded-md border"
+            />
+            <p className="text-sm mt-1">
+              Current {alt}:{" "}
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500"
+              >
+                View
+              </a>
+            </p>
+          </div>
+        );
+      }
+      return null;
+    };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
